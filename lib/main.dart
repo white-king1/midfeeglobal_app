@@ -5,8 +5,27 @@ import 'package:get/get.dart';
 import 'package:midfeeglobal_app/auth/reset_password.dart';
 import 'package:midfeeglobal_app/screen/splash_screen.dart';
 import 'package:midfeeglobal_app/static/getit.dart';
+import 'package:midfeeglobal_app/users/accept_order.dart';
+import 'package:midfeeglobal_app/users/carousel.dart';
+import 'package:midfeeglobal_app/users/deposit.dart';
+import 'package:midfeeglobal_app/users/home.dart';
+import 'package:midfeeglobal_app/users/menu.dart';
+import 'package:midfeeglobal_app/users/new_carousel.dart';
+import 'package:midfeeglobal_app/users/new_details_page.dart';
+import 'package:midfeeglobal_app/users/notifications.dart';
+import 'package:midfeeglobal_app/users/profile.dart';
+import 'package:midfeeglobal_app/users/responsive_carousel.dart';
+import 'package:midfeeglobal_app/view_model/accept_order_vm.dart';
 import 'package:midfeeglobal_app/view_model/auth_vm.dart';
+import 'package:midfeeglobal_app/view_model/buyer_trans_vm.dart';
+import 'package:midfeeglobal_app/view_model/deposit_vm.dart';
+import 'package:midfeeglobal_app/view_model/place_order_vm.dart';
+import 'package:midfeeglobal_app/view_model/profile_vm.dart';
 import 'package:midfeeglobal_app/view_model/register_vm.dart';
+import 'package:midfeeglobal_app/view_model/seller_trans_vm.dart';
+import 'package:midfeeglobal_app/view_model/view_order_vm.dart';
+import 'package:midfeeglobal_app/view_model/wallet_vm.dart';
+import 'package:midfeeglobal_app/view_model/withdrawal_vm.dart';
 import 'package:provider/provider.dart';
 
 Future main() async {
@@ -18,6 +37,16 @@ Future main() async {
     providers: [
       ChangeNotifierProvider(create: (_) => RegisterVm()),
       ChangeNotifierProvider(create: (_) => AuthVm()),
+      ChangeNotifierProvider(create: (_) => ProfileVm()),
+      ChangeNotifierProvider(create: (_) => WalletVm()),
+      ChangeNotifierProvider(create: (_) => SellertransVm()),
+      ChangeNotifierProvider(create: (_) => BuyertransVm()),
+      ChangeNotifierProvider(create: (_) => PlaceOrderVm()),
+      ChangeNotifierProvider(create: (_) => DepositVm()),
+      ChangeNotifierProvider(create: (_) => WithdrawalVm()),
+      ChangeNotifierProvider(create: (_) => AcceptOrderVm()),
+      ChangeNotifierProvider(create: (_)=> ViewOrderVm()),
+
     ],
     child: MyApp(),
   ));

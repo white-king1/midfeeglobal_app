@@ -19,20 +19,17 @@ class _RefundState extends State<Refund> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          iconTheme: IconThemeData(color: Colors.white),
-          backgroundColor: AppColors.purpleColor,
-          elevation: 0,
-          title: Row(
-            children: [
-              BigText(
-                  color: Colors.white,
-                  text: 'Refund',
-                  size: 24,
-                  fontWeight: FontWeight.bold),
-            ],
-          ),
-          centerTitle: true,
+        
+        backgroundColor: AppColors.purpleColor,
+        title: BigText(
+          text: 'REFUND',
+          fontWeight: FontWeight.bold,
+          size: 24,
+          color: Colors.white,
         ),
+        elevation: 0,
+        centerTitle: true,
+      ),
         body: SingleChildScrollView(
           padding: EdgeInsets.symmetric(horizontal: 20),
           child: Column(
@@ -160,7 +157,7 @@ class _RefundState extends State<Refund> {
                                 text: "Refund",
                                 fontWeight: FontWeight.bold,
                                 size: 14,
-                                color: AppColors.blueColor,
+                                color: Colors.white,
                               ),
 
                               style: ElevatedButton.styleFrom(
@@ -199,7 +196,7 @@ class _RefundState extends State<Refund> {
                                 text: "Cancel",
                                 fontWeight: FontWeight.bold,
                                 size: 14,
-                                color: AppColors.blueColor,
+                                color: AppColors.purpleColor,
                               ),
 
                               style: ElevatedButton.styleFrom(

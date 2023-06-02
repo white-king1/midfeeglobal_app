@@ -77,14 +77,14 @@ class _ForgotPasswordState extends State<ForgotPassword> {
               TextFormField(
                 decoration: InputDecoration(
                   border: OutlineInputBorder(
-                    borderSide: BorderSide(color: AppColors.blueColor),
+                    borderSide: BorderSide(color: AppColors.purpleColor),
                     borderRadius: BorderRadius.circular(10.0),
                   ),
                   labelText: 'Email',
                   suffixIcon: IconButton(
                     icon: Icon(
                       Icons.unsubscribe_outlined,
-                      color: Color(0xffd63384),
+                      color: AppColors.pinkColor,
                     ),
                     onPressed: () {},
                   ),
@@ -111,7 +111,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                     // ignore: sort_child_properties_last
                     child: BigText(
                       text: "Submit",
-                      color: AppColors.blueColor,
+                      color: Colors.white,
                       fontWeight: FontWeight.normal,
                     ),
                     style: ElevatedButton.styleFrom(

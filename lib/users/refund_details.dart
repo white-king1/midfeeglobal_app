@@ -19,31 +19,22 @@ class _RefundDetailsState extends State<RefundDetails> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          iconTheme: IconThemeData(color: Colors.white),
-          backgroundColor: AppColors.purpleColor,
-          elevation: 0,
-          title: Row(
-            children: [
-              BigText(
-                  color: Colors.white,
-                  text: 'Refund Details',
-                  size: 24,
-                  fontWeight: FontWeight.bold),
-            ],
-          ),
-          centerTitle: true,
+        
+        backgroundColor: AppColors.purpleColor,
+        title: BigText(
+          text: 'REFUND DETAILS',
+          fontWeight: FontWeight.bold,
+          size: 24,
+          color: Colors.white,
         ),
+        elevation: 0,
+        centerTitle: true,
+      ),
         body: SingleChildScrollView(
           padding: EdgeInsets.symmetric(horizontal: 20),
           child: Column(
             children: [
-              SizedBox(
-                height: 80,
-              ),
               Image(image: AssetImage('assets/refund.png')),
-              SizedBox(
-                height: 50,
-              ),
               Container(
                 padding: EdgeInsets.symmetric(horizontal: 15, vertical: 5),
                 decoration: BoxDecoration(
@@ -93,9 +84,7 @@ class _RefundDetailsState extends State<RefundDetails> {
                       fontWeight: FontWeight.normal)
                 ],
               ),
-              SizedBox(
-                height: 10,
-              ),
+              
               Form(
                 child: Column(
                   children: [
@@ -128,7 +117,7 @@ class _RefundDetailsState extends State<RefundDetails> {
                             text: "Submit",
                             fontWeight: FontWeight.bold,
                             size: 14,
-                            color: AppColors.blueColor,
+                            color: Colors.white,
                           ),
 
                           style: ElevatedButton.styleFrom(

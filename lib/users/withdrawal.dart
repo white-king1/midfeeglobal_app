@@ -2,8 +2,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:midfeeglobal_app/utils/colors.dart';
+import 'package:midfeeglobal_app/view_model/withdrawal_vm.dart';
 import 'package:midfeeglobal_app/widgets/big_text.dart';
 import 'package:midfeeglobal_app/widgets/small_text.dart';
+import 'package:provider/provider.dart';
 
 class Withdrawal extends StatefulWidget {
   const Withdrawal({ Key? key }) : super(key: key);
@@ -20,20 +22,17 @@ class _WithdrawalState extends State<Withdrawal> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          iconTheme: IconThemeData(color: Colors.white),
-          backgroundColor: AppColors.purpleColor,
-          elevation: 0,
-          title: Row(
-            children: [
-              BigText(
-                  color: Colors.white,
-                  text: 'Withdrawal',
-                  size: 24,
-                  fontWeight: FontWeight.bold),
-            ],
-          ),
-          centerTitle: true,
+        
+        backgroundColor: AppColors.purpleColor,
+        title: BigText(
+          text: 'WITHDRAWAL',
+          fontWeight: FontWeight.bold,
+          size: 24,
+          color: Colors.white,
         ),
+        elevation: 0,
+        centerTitle: true,
+      ),
         body: SingleChildScrollView(
           padding: EdgeInsets.symmetric(horizontal: 20),
           child: Column(
@@ -91,166 +90,169 @@ class _WithdrawalState extends State<Withdrawal> {
               SizedBox(
                 height: 10,
               ),
-              Form(
-                child: Column(
-                  children: [
-                     SizedBox(
-                      height: 15,
-                    ),
-                    TextFormField(
-                      decoration: InputDecoration(
-                          border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(15)),
-                          labelText: 'BANK NAME'),
-                    ),
-                     SizedBox(
-                      height: 15,
-                    ),
-                    TextFormField(
-                      decoration: InputDecoration(
-                          border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(15)),
-                          labelText: 'ACCOUNT HOLDER\'S NAME'),
-                    ),
-                     SizedBox(
-                      height: 15,
-                    ),
-                    TextFormField(
-                      decoration: InputDecoration(
-                          border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(15)),
-                          labelText: 'ACCOUNT NUMBER'),
-                    ),
-                    SizedBox(
-                      height: 15,
-                    ),
-                    Container(
-                      width: 450,
-                      height: 50,
-                      margin: EdgeInsets.all(2),
-                      padding: EdgeInsets.only(
-                          bottom: 10, top: 10, left: 10, right: 10),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        border: Border.all(color: Colors.grey, width: 1),
+              Consumer<WithdrawalVm>(builder: (context, auth, child) {          
+                return Form(
+                  child: Column(
+                    children: [
+                       SizedBox(
+                        height: 15,
                       ),
-                      child: DropdownButtonHideUnderline(
-                          child: DropdownButton<String>(
-                        hint: Text('Currency'),
-                        value: value,
-                        iconSize: 16,
-                        icon: Icon(
-                          Icons.arrow_drop_down,
-                          size: 30,
-                          color: Colors.grey,
+                      TextFormField(
+                        decoration: InputDecoration(
+                            border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(15)),
+                            labelText: 'BANK NAME'),
+                            controller:auth.details ,
+                      ),
+                       SizedBox(
+                        height: 15,
+                      ),
+                      TextFormField(
+                        decoration: InputDecoration(
+                            border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(15)),
+                            labelText: 'ACCOUNT HOLDER\'S NAME'),
+                            controller: auth.details,
+                      ),
+                       SizedBox(
+                        height: 15,
+                      ),
+                      TextFormField(
+                        decoration: InputDecoration(
+                            border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(15)),
+                            labelText: 'ACCOUNT NUMBER'),
+                            controller: auth.details,
+                      ),
+                      SizedBox(
+                        height: 15,
+                      ),
+                      Container(
+                        width: 450,
+                        height: 50,
+                        margin: EdgeInsets.all(2),
+                        padding: EdgeInsets.only(
+                            bottom: 10, top: 10, left: 10, right: 10),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          border: Border.all(color: Colors.grey, width: 1),
                         ),
-                        isExpanded: true,
-                        items: items.map(buildMenuItem).toList(),
-                        onChanged: (value) =>
-                            setState(() => this.value = value),
-                      )),
-                    ),
-                    SizedBox(
-                      height: 15,
-                    ),
-                    TextFormField(
-                      decoration: InputDecoration(
-                          border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(15)),
-                          labelText: 'Amount'),
-                    ),
-                    SizedBox(
-                      height: 15,
-                    ),
-                    TextFormField(
-                      decoration: InputDecoration(
-                          border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(15)),
-                          labelText: 'Password'),
-                    ),
-                    Row(
-                      children: [
-                        Container(
-                          margin: EdgeInsets.only(top: 20, left: 10, right: 20),
-                          child: SizedBox(
-                            width: 150,
-                            height: 50,
-                            // ignore: sort_child_properties_last
-                            child: ElevatedButton(
-                              onPressed: () {
-                                // Navigator.push(
-                                //   context,
-                                //   MaterialPageRoute(
-                                //     builder: (context) => AcceptOrder(),
-                                //   ),
-                                // );
-                              },
-                              // ignore: sort_child_properties_last
-                              child: BigText(
-                                text: "Withdraw",
-                                fontWeight: FontWeight.bold,
-                                size: 14,
-                                color: AppColors.blueColor,
-                              ),
-
-                              style: ElevatedButton.styleFrom(
-                                primary: AppColors
-                                    .purpleColor, //change background color of button
-                                // onPrimary: Colors.yellow, //change text color of button
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(10),
-                                  side: BorderSide(color: AppColors.purpleColor),
-                                ),
-                              ),
-                            ),
+                        child: DropdownButtonHideUnderline(
+                            child: DropdownButton<String>(
+                          hint: Text('Currency'),
+                          value: value,
+                          iconSize: 16,
+                          icon: Icon(
+                            Icons.arrow_drop_down,
+                            size: 30,
+                            color: Colors.grey,
                           ),
-                        ),
-                        SizedBox(
-                          width: 10,
-                        ),
-                        Container(
-                          margin: EdgeInsets.only(top: 20, left: 10, right: 20),
-                          child: SizedBox(
-                            width: 150,
-                            height: 50,
-                            // ignore: sort_child_properties_last
-                            child: ElevatedButton(
-                              onPressed: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
+                          isExpanded: true,
+                          items: items.map(buildMenuItem).toList(),
+                          onChanged: (value) =>
+                              setState(() => this.value = value),
+                        )),
+                      ),
+                      SizedBox(
+                        height: 15,
+                      ),
+                      TextFormField(
+                        decoration: InputDecoration(
+                            border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(15)),
+                            labelText: 'Amount'),
+                            controller: auth.amount,
+                      ),
+                      SizedBox(
+                        height: 15,
+                      ),
+                      Row(
+                        children: [
+                          Container(
+                            margin: EdgeInsets.only(top: 20, left: 10, right: 20),
+                            child: SizedBox(
+                              width: 150,
+                              height: 50,
+                              // ignore: sort_child_properties_last
+                              child: ElevatedButton(
+                                onPressed: () =>{
 
-                                    builder: (context) => Withdrawal(),
+                                  auth.Withdrawal(context),
+                                  // Navigator.push(
+                                  //   context,
+                                  //   MaterialPageRoute(
+                                  //     builder: (context) => AcceptOrder(),
+                                  //   ),
+                                  // );
+                                },
+                                // ignore: sort_child_properties_last
+                                child: BigText(
+                                  text: "Withdraw",
+                                  fontWeight: FontWeight.bold,
+                                  size: 14,
+                                  color: Colors.white,
+                                ),
+              
+                                style: ElevatedButton.styleFrom(
+                                  primary: AppColors
+                                      .purpleColor, //change background color of button
+                                  // onPrimary: Colors.yellow, //change text color of button
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10),
+                                    side: BorderSide(color: AppColors.purpleColor),
                                   ),
-                                );
-                              },
-                              // ignore: sort_child_properties_last
-                              child: BigText(
-                                text: "Cancel",
-                                fontWeight: FontWeight.bold,
-                                size: 14,
-                                color: AppColors.blueColor,
-                              ),
-
-                              style: ElevatedButton.styleFrom(
-                                primary: Colors.white, //change background color of button
-                                // onPrimary: Colors.yellow, //change text color of button
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(10),
-                                  side:
-                                      BorderSide(color: AppColors.purpleColor),
                                 ),
                               ),
                             ),
                           ),
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      width: 10,
-                    ),
-                  ],
-                ),
+                          SizedBox(
+                            width: 10,
+                          ),
+                          Container(
+                            margin: EdgeInsets.only(top: 20, left: 10, right: 20),
+                            child: SizedBox(
+                              width: 150,
+                              height: 50,
+                              // ignore: sort_child_properties_last
+                              child: ElevatedButton(
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+              
+                                      builder: (context) => Withdrawal(),
+                                    ),
+                                  );
+                                },
+                                // ignore: sort_child_properties_last
+                                child: BigText(
+                                  text: "Cancel",
+                                  fontWeight: FontWeight.bold,
+                                  size: 14,
+                                  color: AppColors.purpleColor,
+                                ),
+              
+                                style: ElevatedButton.styleFrom(
+                                  primary: Colors.white, //change background color of button
+                                  // onPrimary: Colors.yellow, //change text color of button
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10),
+                                    side:
+                                        BorderSide(color: AppColors.purpleColor),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        width: 10,
+                      ),
+                    ],
+                  ),
+                );
+              }
               ),
             ],
           ),

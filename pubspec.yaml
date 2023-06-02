@@ -45,11 +45,12 @@ dependencies:
   get_it: ^7.2.0
   another_flushbar: ^1.10.28
   get: 4.6.1
-  intl: ^0.17.0
   path_provider: ^2.0.11
   cached_network_image: ^3.2.1
   flutter_html: ^2.2.1
   image_picker: ^0.8.6
+  intl: ^0.18.1
+  carousel_slider: ^4.2.1
 
 dev_dependencies:
   flutter_test:

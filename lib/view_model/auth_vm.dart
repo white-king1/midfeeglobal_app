@@ -10,6 +10,7 @@ import 'package:midfeeglobal_app/services/local_storage_service.dart';
 import 'package:midfeeglobal_app/services/server.dart';
 import 'package:midfeeglobal_app/static/getit.dart';
 import 'package:midfeeglobal_app/users/dashboard.dart';
+import 'package:midfeeglobal_app/users/home.dart';
 
 class AuthVm extends ChangeNotifier {
   // login controllers

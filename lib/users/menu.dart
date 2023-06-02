@@ -1,4 +1,4 @@
-// ignore_for_file: deprecated_member_use, prefer_const_constructors, prefer_const_literals_to_create_immutables, unused_local_variable, unused_import, avoid_web_libraries_in_flutter, library_private_types_in_public_api
+// ignore_for_file: deprecated_member_use, prefer_const_constructors, prefer_const_literals_to_create_immutables, unused_local_variable, unused_import, avoid_web_libraries_in_flutter, library_private_types_in_public_api, sized_box_for_whitespace
 
 import 'dart:html';
 
@@ -85,18 +85,15 @@ class _MenuState extends State<Menu> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        iconTheme: IconThemeData(color: Colors.white),
+        
         backgroundColor: AppColors.purpleColor,
-        elevation: 0,
-        title: Row(
-          children: [
-            BigText(
-                      color: Colors.white,
-                      text: 'Menu',
-                      size: 24,
-                      fontWeight: FontWeight.bold),
-          ],
+        title: BigText(
+          text: 'MENU',
+          fontWeight: FontWeight.bold,
+          size: 24,
+          color: Colors.white,
         ),
+        elevation: 0,
         centerTitle: true,
       ),
       body: SingleChildScrollView(
@@ -104,22 +101,40 @@ class _MenuState extends State<Menu> {
             const EdgeInsets.only(bottom: 20, left: 20, right: 20, top: 20),
         child: Column(
           children: [
-            Container(
-              width: 400,
-              height: 200,
-              padding: EdgeInsets.symmetric(horizontal: 15, vertical: 5),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(8),
-                border: Border.all(color: Colors.black.withOpacity(0.13)),
-              ),
-              child: Center(
-                child: Image.asset(
-                  'assets/Black png.png',
-                  scale: 5,
+            Center(
+                  child: Container(
+                    width: 350,
+                    height: 200,
+                    child: Column(
+                      children: [
+                        Image(
+                          image: AssetImage('assets/Black png.png'),
+                        ),
+                        BigText(
+                            text: 'GLOBAL.',
+                            color: AppColors.purpleColor,
+                            size: 32,
+                            fontWeight: FontWeight.bold),
+                      ],
+                    ),
+                  ),
                 ),
-              ),
-            ),
+            // Container(
+            //   width: 400,
+            //   height: 200,
+            //   padding: EdgeInsets.symmetric(horizontal: 15, vertical: 5),
+            //   decoration: BoxDecoration(
+            //     color: Colors.white,
+            //     borderRadius: BorderRadius.circular(8),
+            //     border: Border.all(color: Colors.black.withOpacity(0.13)),
+            //   ),
+            //   child: Center(
+            //     child: Image.asset(
+            //       'assets/Black png.png',
+            //       scale: 5,
+            //     ),
+            //   ),
+            // ),
             Divider(thickness: 4.07, color: Color(0xffd63384)),
             SizedBox(
               height: 20,
@@ -128,12 +143,7 @@ class _MenuState extends State<Menu> {
               padding: EdgeInsets.symmetric(horizontal: 15, vertical: 5),
               decoration: BoxDecoration(
                 color: Colors.white,
-                boxShadow: [
-                  BoxShadow(
-                      color: Color(0xffd63384),
-                      blurRadius: 10,
-                      offset: Offset(0, 4))
-                ],
+                
                 borderRadius: BorderRadius.circular(8),
                 border: Border.all(color: Colors.black.withOpacity(0.13)),
               ),
@@ -149,9 +159,13 @@ class _MenuState extends State<Menu> {
                   },
                   child: ListTile(
                     title: Text('About Us',
-                        style: Theme.of(context).textTheme.bodyText1!.copyWith(color: AppColors.pinkColor)),
+                        style: Theme.of(context)
+                            .textTheme
+                            .bodyText1!
+                            .copyWith(color: AppColors.purpleColor)),
                     trailing: Icon(
-                      Icons.arrow_forward_ios,color: AppColors.purpleColor,
+                      Icons.arrow_forward_ios,
+                      color: AppColors.purpleColor,
                     ),
                   ),
                 ),
@@ -162,12 +176,7 @@ class _MenuState extends State<Menu> {
               padding: EdgeInsets.symmetric(horizontal: 15, vertical: 5),
               decoration: BoxDecoration(
                 color: Colors.white,
-                boxShadow: [
-                  BoxShadow(
-                      color: Color(0xffd63384),
-                      blurRadius: 10,
-                      offset: Offset(0, 4))
-                ],
+                
                 borderRadius: BorderRadius.circular(8),
                 border: Border.all(color: Colors.black.withOpacity(0.13)),
               ),
@@ -179,8 +188,14 @@ class _MenuState extends State<Menu> {
                   },
                   child: ListTile(
                     title: Text('Privacy Policy',
-                        style: Theme.of(context).textTheme.bodyText1!.copyWith(color: AppColors.pinkColor)),
-                    trailing: Icon(Icons.arrow_forward_ios,color: AppColors.purpleColor,),
+                        style: Theme.of(context)
+                            .textTheme
+                            .bodyText1!
+                            .copyWith(color: AppColors.purpleColor)),
+                    trailing: Icon(
+                      Icons.arrow_forward_ios,
+                      color: AppColors.purpleColor,
+                    ),
                   ),
                 ),
               ),
@@ -190,12 +205,7 @@ class _MenuState extends State<Menu> {
               padding: EdgeInsets.symmetric(horizontal: 15, vertical: 5),
               decoration: BoxDecoration(
                 color: Colors.white,
-                boxShadow: [
-                  BoxShadow(
-                      color: Color(0xffd63384),
-                      blurRadius: 10,
-                      offset: Offset(0, 4))
-                ],
+                
                 borderRadius: BorderRadius.circular(8),
                 border: Border.all(color: Colors.black.withOpacity(0.13)),
               ),
@@ -211,9 +221,13 @@ class _MenuState extends State<Menu> {
                   },
                   child: ListTile(
                     title: Text('Support',
-                        style: Theme.of(context).textTheme.bodyText1!.copyWith(color: AppColors.pinkColor)),
+                        style: Theme.of(context)
+                            .textTheme
+                            .bodyText1!
+                            .copyWith(color: AppColors.purpleColor)),
                     trailing: Icon(
-                      Icons.arrow_forward_ios,color: AppColors.purpleColor,
+                      Icons.arrow_forward_ios,
+                      color: AppColors.purpleColor,
                     ),
                   ),
                 ),
@@ -224,12 +238,7 @@ class _MenuState extends State<Menu> {
               padding: EdgeInsets.symmetric(horizontal: 15, vertical: 5),
               decoration: BoxDecoration(
                 color: Colors.white,
-                boxShadow: [
-                  BoxShadow(
-                     color: Color(0xffd63384),
-                      blurRadius: 10,
-                      offset: Offset(0, 4))
-                ],
+                
                 borderRadius: BorderRadius.circular(8),
                 border: Border.all(color: Colors.black.withOpacity(0.13)),
               ),
@@ -240,10 +249,16 @@ class _MenuState extends State<Menu> {
                   },
                   child: ListTile(
                     leading: Icon(Icons.power_settings_new,
-                        color: AppColors.pinkColor),
+                        color: AppColors.purpleColor),
                     title: Text('Logout',
-                        style: Theme.of(context).textTheme.bodyText1!.copyWith(color: AppColors.pinkColor)),
-                    trailing: Icon(Icons.arrow_forward_ios,color: AppColors.purpleColor,),
+                        style: Theme.of(context)
+                            .textTheme
+                            .bodyText1!
+                            .copyWith(color: AppColors.purpleColor)),
+                    trailing: Icon(
+                      Icons.arrow_forward_ios,
+                      color: AppColors.purpleColor,
+                    ),
                   ),
                 ),
               ),

@@ -59,7 +59,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   text: "Login",
                   fontWeight: FontWeight.bold,
                   size: 14,
-                  color: AppColors.blueColor,
+                  color: Colors.white,
                 ),
 
                 style: ElevatedButton.styleFrom(
@@ -98,7 +98,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   text: "Sign Up",
                   fontWeight: FontWeight.bold,
                   size: 14,
-                  color: AppColors.blueColor,
+                  color: AppColors.purpleColor,
                 ),
 
                 style: ElevatedButton.styleFrom(

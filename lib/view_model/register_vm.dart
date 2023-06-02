@@ -42,23 +42,23 @@ class RegisterVm extends ChangeNotifier {
 
     final Map<String, dynamic> parsed = json.decode(response.body);
     print(response.body);
-    if (response.statusCode == 200) {
+    // if (response.statusCode == 200) {
      
-      Flushbar(
-        title: "Oops",
-        message: parsed['errors'].toString(),
-        duration: Duration(seconds: 3),
-      )..show(context);
+    //   Flushbar(
+    //     title: "Oops",
+    //     message: parsed['errors'].toString(),
+    //     duration: Duration(seconds: 3),
+    //   )..show(context);
 
-      loading = false;
-      notifyListeners();
+    //   loading = false;
+    //   notifyListeners();
 
-      return;
-    }
+    //   return;
+    // }
 
     final result = RegisterResponse.fromJson(parsed);
     print(response.body);
-    if (result.statusCode == 200) {
+    if (result.statusCode == true) {
       await getIt.get<LocalStorageService>().setName(result.data?.name);
       await getIt.get<LocalStorageService>().setToken(result.token ?? '');
       await getIt.get<LocalStorageService>().setEmail(email.text);
@@ -68,7 +68,7 @@ class RegisterVm extends ChangeNotifier {
     } else {
       Flushbar(
         title: "Oops",
-        message: "Incorrect credentials",
+        message: "Already Used credentials",
         duration: Duration(seconds: 3),
       )..show(context);
     }

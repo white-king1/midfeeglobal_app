@@ -6,14 +6,13 @@ import 'package:midfeeglobal_app/utils/colors.dart';
 import 'package:midfeeglobal_app/widgets/big_text.dart';
 
 class SplashScreen extends StatefulWidget {
-  const SplashScreen({ Key? key }) : super(key: key);
+  const SplashScreen({Key? key}) : super(key: key);
 
   @override
   _SplashScreenState createState() => _SplashScreenState();
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-
   @override
   void initState() {
     super.initState();
@@ -29,12 +28,11 @@ class _SplashScreenState extends State<SplashScreen> {
           ));
     });
   }
-  
+
   @override
   Widget build(BuildContext context) {
-   return Scaffold(
+    return Scaffold(
       backgroundColor: Colors.white,
-      
       body: Center(
         child: Column(
           children: [
@@ -47,19 +45,18 @@ class _SplashScreenState extends State<SplashScreen> {
                 height: 200,
                 child: Column(
                   children: [
-                    Image(image: AssetImage('assets/Black png.png'),
-            ),
-             BigText(
-                    text: 'GLOBAL.',
-                    color: AppColors.purpleColor,
-                    size: 32,
-                    fontWeight: FontWeight.bold),
+                    Image(
+                      image: AssetImage('assets/Black png.png'),
+                    ),
+                    BigText(
+                        text: 'GLOBAL.',
+                        color: AppColors.purpleColor,
+                        size: 32,
+                        fontWeight: FontWeight.bold),
                   ],
                 ),
               ),
-            
             ),
-            
           ],
         ),
       ),

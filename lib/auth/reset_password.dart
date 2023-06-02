@@ -109,7 +109,7 @@ class _ResetPasswordState extends State<ResetPassword> {
                     // ignore: sort_child_properties_last
                     child: BigText(
                       text: "Submit",
-                      color: AppColors.blueColor,
+                      color: Colors.white,
                       fontWeight: FontWeight.normal,
                     ),
                     style: ElevatedButton.styleFrom(

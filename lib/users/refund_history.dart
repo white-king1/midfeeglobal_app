@@ -19,18 +19,15 @@ class _RefundHistoryState extends State<RefundHistory> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        iconTheme: IconThemeData(color: Colors.white),
+        
         backgroundColor: AppColors.purpleColor,
-        elevation: 0,
-        title: Row(
-          children: [
-            BigText(
-                  color: Colors.white,
-                  text: 'Refund History',
-                  size: 24,
-                  fontWeight: FontWeight.bold),
-          ],
+        title: BigText(
+          text: 'REFUND HISTORY',
+          fontWeight: FontWeight.bold,
+          size: 24,
+          color: Colors.white,
         ),
+        elevation: 0,
         centerTitle: true,
       ),
       body: SingleChildScrollView(

@@ -11,6 +11,7 @@ import 'package:midfeeglobal_app/users/refund_details.dart';
 import 'package:midfeeglobal_app/users/view_order.dart';
 import 'package:midfeeglobal_app/users/withdrawal.dart';
 import 'package:midfeeglobal_app/utils/colors.dart';
+import 'package:midfeeglobal_app/widgets/big_text.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class Navbar extends StatelessWidget {
@@ -46,21 +47,21 @@ launchURL(String url) async {
             decoration: BoxDecoration(
                 // color: Colors.blue,
               image: DecorationImage(
-              image: AssetImage('assets/Black png.png'),
+              image: AssetImage('assets/Black png.png',),
               scale: 2,
             )),
           ),
-          Divider(thickness: 4.07, color: Color(0xffd63384)),
+          Divider(thickness: 4.07, color: AppColors.purpleColor),
           ListTile(
-            leading: Icon(Icons.share,color: Color(0xffd63384),),
+            leading: Icon(Icons.share,color: AppColors.purpleColor,),
             title: Text('Place Order', style: Theme.of(context).textTheme.headline2!..copyWith(
-                          color:Color(0xffd63384),
+                          color:AppColors.purpleColor,
                         ),),
             onTap: () {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: ((context) => PlaceOrder()
+                  builder: ((context) => PlaceOrder(transactionId: null)
                   ),
                 ),
               );
@@ -68,22 +69,22 @@ launchURL(String url) async {
           ),
          Divider(
             thickness: 4.07,
-            color: Color(0xffd63384),
+            color: AppColors.purpleColor,
           ),
           ListTile(
-            leading: Icon(Icons.description,color: Color(0xffd63384),) ,
+            leading: Icon(Icons.description,color: AppColors.purpleColor,) ,
             title: Text('View Order Details'),
             onTap: () {
               Navigator.push(context,
-                  MaterialPageRoute(builder: ((context) => ViewOrder())));
+                  MaterialPageRoute(builder: ((context) => ViewOrder(transactionId: null))));
             },
           ),
           Divider(
             thickness: 4.07,
-            color: Color(0xffd63384),
+            color: AppColors.purpleColor,
           ),
           ListTile(
-            leading: Icon(Icons.payments,color: Color(0xffd63384),),
+            leading: Icon(Icons.payments,color: AppColors.purpleColor,),
             title: Text('Deposit'),
             onTap: () {
               Navigator.push(context,
@@ -92,11 +93,11 @@ launchURL(String url) async {
           ),
            Divider(
             thickness: 4.07,
-            color: Color(0xffd63384),
+            color: AppColors.purpleColor,
           ),
           
           ListTile(
-            leading: Icon(Icons.remove,color: Color(0xffd63384),),
+            leading: Icon(Icons.remove,color: AppColors.purpleColor,),
             title: Text('Withdrawal'),
             onTap: () {
               Navigator.push(context,
@@ -105,10 +106,10 @@ launchURL(String url) async {
           ),
           Divider(
             thickness: 4.07,
-            color: Color(0xffd63384),
+            color: AppColors.purpleColor,
           ),
           ListTile(
-            leading: Icon(Icons.insights,color: Color(0xffd63384),),
+            leading: Icon(Icons.insights,color: AppColors.purpleColor,),
             title: Text('Refund'),
             onTap: () {
               Navigator.push(context,
@@ -117,11 +118,11 @@ launchURL(String url) async {
           ),
           Divider(
             thickness: 4.07,
-            color: Color(0xffd63384),
+            color: AppColors.purpleColor,
           ),
           
           ListTile(
-            leading: Icon(Icons.summarize,color: Color(0xffd63384),),
+            leading: Icon(Icons.summarize,color: AppColors.purpleColor,),
             title: Text('Refund Details'),
             onTap: () {
               Navigator.push(context,
@@ -130,10 +131,10 @@ launchURL(String url) async {
           ),
           Divider(
             thickness: 4.07,
-            color: Color(0xffd63384),
+            color: AppColors.purpleColor,
           ),
           ListTile(
-            leading: Icon(Icons.report,color: Color(0xffd63384),),
+            leading: Icon(Icons.report,color: AppColors.purpleColor,),
             title: Text('Report Transction'),
             onTap: () {
               const url = "https://wa.me/message/6QB6U4SSXSKEC1";
@@ -144,12 +145,12 @@ launchURL(String url) async {
           ),
           Divider(
             thickness: 4.07,
-            color: Color(0xffd63384),
+            color: AppColors.purpleColor,
           ),
           ListTile(
             leading: Icon(
                       Icons.forum,
-                      color: AppColors.pinkColor,
+                      color: AppColors.purpleColor,
                     ),
             title: Text('Chart With Us'),
             onTap: () {
@@ -159,16 +160,16 @@ launchURL(String url) async {
               //     MaterialPageRoute(builder: ((context) => AboutUs())));
             },
           ),
-          Divider(thickness: 4.07, color: Color(0xffd63384)),
+          Divider(thickness: 4.07, color: AppColors.purpleColor),
           ListTile(
-            leading: Icon(Icons.exit_to_app,color: Color(0xffd63384)),
+            leading: Icon(Icons.exit_to_app,color: AppColors.purpleColor),
             title: Text('LogOut'),
             onTap: () {
               Navigator.of(context)
                   .push(MaterialPageRoute(builder: (context) => Login()));
             },
           ),
-          Divider(thickness: 4.07, color: Color(0xffd63384)),
+          Divider(thickness: 4.07, color: AppColors.purpleColor),
         ],
       ),
     );

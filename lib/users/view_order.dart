@@ -1,13 +1,17 @@
-// ignore_for_file: library_private_types_in_public_api, prefer_const_constructors, deprecated_member_use
+// ignore_for_file: library_private_types_in_public_api, prefer_const_constructors, deprecated_member_use, prefer_typing_uninitialized_variables, unused_import, sized_box_for_whitespace
 
 import 'package:flutter/material.dart';
 import 'package:midfeeglobal_app/users/accept_order.dart';
 import 'package:midfeeglobal_app/utils/colors.dart';
+import 'package:midfeeglobal_app/view_model/view_order_vm.dart';
 import 'package:midfeeglobal_app/widgets/big_text.dart';
 import 'package:midfeeglobal_app/widgets/small_text.dart';
+import 'package:provider/provider.dart';
 
 class ViewOrder extends StatefulWidget {
-  const ViewOrder({Key? key}) : super(key: key);
+  const ViewOrder({super.key, required this.transactionId});
+
+  final transactionId;
 
   @override
   _ViewOrderState createState() => _ViewOrderState();
@@ -18,18 +22,14 @@ class _ViewOrderState extends State<ViewOrder> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          iconTheme: IconThemeData(color: Colors.white),
           backgroundColor: AppColors.purpleColor,
-          elevation: 0,
-          title: Row(
-            children: [
-              BigText(
-                  color: Colors.white,
-                  text: 'View Order Details',
-                  size: 24,
-                  fontWeight: FontWeight.bold),
-            ],
+          title: BigText(
+            text: 'VIEW ORDER DETAILS',
+            fontWeight: FontWeight.bold,
+            size: 24,
+            color: Colors.white,
           ),
+          elevation: 0,
           centerTitle: true,
         ),
         body: SingleChildScrollView(
@@ -37,11 +37,28 @@ class _ViewOrderState extends State<ViewOrder> {
           child: Column(
             children: [
               SizedBox(
-                height: 80,
+                height: 20,
               ),
-              Image(image: AssetImage('assets/Black png.png')),
+              Center(
+                child: Container(
+                  width: 350,
+                  height: 200,
+                  child: Column(
+                    children: [
+                      Image(
+                        image: AssetImage('assets/Black png.png'),
+                      ),
+                      BigText(
+                          text: 'GLOBAL.',
+                          color: AppColors.purpleColor,
+                          size: 32,
+                          fontWeight: FontWeight.bold),
+                    ],
+                  ),
+                ),
+              ),
               SizedBox(
-                height: 50,
+                height: 20,
               ),
               Container(
                 padding: EdgeInsets.symmetric(horizontal: 15, vertical: 5),
@@ -95,59 +112,56 @@ class _ViewOrderState extends State<ViewOrder> {
               SizedBox(
                 height: 10,
               ),
-              Form(
-                child: Column(
-                  children: [
-                    SizedBox(
-                      height: 15,
-                    ),
-                    TextFormField(
-                      decoration: InputDecoration(
-                          border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(15)),
-                          labelText: 'Transaction ID'),
-                    ),
-                    Container(
-                      margin: EdgeInsets.only(top: 20, left: 10, right: 20),
-                      child: SizedBox(
-                        width: 150,
-                        height: 50,
-                        // ignore: sort_child_properties_last
-                        child: ElevatedButton(
-                          onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => AcceptOrder(),
-                              ),
-                            );
-                          },
+              Consumer<ViewOrderVm>(builder: (context, auth, child) {
+                return Form(
+                  child: Column(
+                    children: [
+                      SizedBox(
+                        height: 15,
+                      ),
+                      TextFormField(
+                          decoration: InputDecoration(
+                              border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(15)),
+                              labelText: 'Transaction ID'),
+                          controller: auth.transaction_id),
+                      Container(
+                        margin: EdgeInsets.only(top: 20, left: 10, right: 20),
+                        child: SizedBox(
+                          width: 150,
+                          height: 50,
                           // ignore: sort_child_properties_last
-                          child: BigText(
-                            text: "Submit",
-                            fontWeight: FontWeight.bold,
-                            size: 14,
-                            color: AppColors.blueColor,
-                          ),
+                          child: ElevatedButton(
+                            onPressed: () {
+                              auth.Vieworder(context);
+                            },
+                            // ignore: sort_child_properties_last
+                            child: BigText(
+                              text: "Submit",
+                              fontWeight: FontWeight.bold,
+                              size: 14,
+                              color: Colors.white,
+                            ),
 
-                          style: ElevatedButton.styleFrom(
-                            primary: AppColors
-                                .purpleColor, //change background color of button
-                            // onPrimary: Colors.yellow, //change text color of button
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10),
-                              side: BorderSide(color: AppColors.purpleColor),
+                            style: ElevatedButton.styleFrom(
+                              primary: AppColors
+                                  .purpleColor, //change background color of button
+                              // onPrimary: Colors.yellow, //change text color of button
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10),
+                                side: BorderSide(color: AppColors.purpleColor),
+                              ),
                             ),
                           ),
                         ),
                       ),
-                    ),
-                    SizedBox(
-                      width: 10,
-                    ),
-                  ],
-                ),
-              ),
+                      SizedBox(
+                        width: 10,
+                      ),
+                    ],
+                  ),
+                );
+              }),
             ],
           ),
         ));

@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, deprecated_member_use, avoid_unnecessary_containers, duplicate_ignore, unnecessary_new
 
 import 'package:flutter/material.dart';
+import 'package:midfeeglobal_app/utils/colors.dart';
 
 import 'package:midfeeglobal_app/widgets/big_text.dart';
 
@@ -16,7 +17,18 @@ class _ContactUsState extends State<ContactUs> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          backgroundColor: Color(0xff1A214F), title: const Text('Contact Us')),
+        
+        backgroundColor: AppColors.purpleColor,
+        title: BigText(
+          text: 'CONTACT US',
+          fontWeight: FontWeight.bold,
+          size: 24,
+          color: Colors.white,
+        ),
+        elevation: 0,
+        centerTitle: true,
+      ),
+      
       body: Center(
         child: SingleChildScrollView(
           child: Padding(

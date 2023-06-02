@@ -15,21 +15,19 @@ class _BuyerOrderTransactionsState extends State<BuyerOrderTransactions> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          iconTheme: IconThemeData(color: Colors.white),
-          backgroundColor: AppColors.purpleColor,
-          elevation: 0,
-          title: Row(
-            children: [
-              BigText(
-                  color: Colors.white,
-                  text: 'Buyer Order Transaction',
-                  size: 20,
-                  fontWeight: FontWeight.bold),
-            ],
-          ),
-          centerTitle: true,
+      appBar: AppBar(
+        
+        backgroundColor: AppColors.purpleColor,
+        title: BigText(
+          text: 'BUYER ORDER TRANSACTION',
+          fontWeight: FontWeight.bold,
+          size: 24,
+          color: Colors.white,
         ),
+        elevation: 0,
+        centerTitle: true,
+      ),
+        
         body: SingleChildScrollView(
             padding:
                 const EdgeInsets.only(bottom: 20, left: 20, right: 20, top: 20),
