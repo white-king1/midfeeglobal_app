@@ -109,192 +109,147 @@ class _AcceptOrderState extends State<AcceptOrder> {
                           height: 15,
                         ),
                         Container(
-                          padding:
-                              EdgeInsets.symmetric(horizontal: 15, vertical: 5),
+                          height: 300,
+                          width: 400,
+                          padding: EdgeInsets.all(8.0),
                           decoration: BoxDecoration(
                             color: Colors.white,
                             borderRadius: BorderRadius.circular(20),
                             border: Border.all(
                                 color: Colors.black.withOpacity(0.13)),
                           ),
-                          child: Material(
-                            child: ListTile(
-                              tileColor: Colors.white,
-                              leading: Icon(
-                                Icons.arrow_forward_ios,
-                                color: AppColors.purpleColor,
-                                size: 30,
+                          child: Column(
+                            children: [
+                              Material(
+                                child: ListTile(
+                                  title: Center(
+                                    child: Column(
+                                      children: [
+                                        SizedBox(
+                                          height: 5,
+                                        ),
+                                        Row(
+                                          children: [
+                                            BigText(
+                                              text:
+                                                  "Transaction ID::${acpt.data?.transactionId} ",
+                                              fontWeight: FontWeight.bold,
+                                              size: 18,
+                                            ),
+                                            SizedBox(width: 5,),
+                                            Icon(
+                                              Icons.copy_sharp,
+                                              color: AppColors.purpleColor,
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
                               ),
-                              title: BigText(
-                                text: "Transaction ID",
-                                fontWeight: FontWeight.bold,
-                                size: 18,
+                              Divider(
+                                height: 10,
+                                endIndent: 10,
+                                indent: 10,
+                                thickness: 2,
+                                color: Colors.white,
                               ),
-                              subtitle: SmallText(
-                                text: "${acpt.data?.transactionId}",
-                                fontWeight: FontWeight.bold,
-                                color: AppColors.purpleColor,
-                                size: 14,
+                              SizedBox(
+                                height: 10,
                               ),
-                              trailing: Icon(
-                                Icons.arrow_back_ios,
-                                color: AppColors.purpleColor,
-                                size: 30,
+                              Material(
+                                child: ListTile(
+                                  title: Center(
+                                    child: Column(
+                                      children: [
+                                        SizedBox(
+                                          height: 5,
+                                        ),
+                                        BigText(
+                                          text:
+                                              "Description::${acpt.data?.description} ",
+                                          fontWeight: FontWeight.bold,
+                                          size: 18,
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
                               ),
-                            ),
+                              Divider(
+                                height: 10,
+                                endIndent: 10,
+                                indent: 10,
+                                thickness: 2,
+                                color: Colors.white,
+                              ),
+                              SizedBox(
+                                height: 10,
+                              ),
+                              
+                              Material(
+                                child: ListTile(
+                                  title: Center(
+                                    child: Column(
+                                      children: [
+                                        SizedBox(
+                                          height: 5,
+                                        ),
+                                        BigText(
+                                          text:
+                                              "Duration in (Days)::${acpt.data?.period} ",
+                                          fontWeight: FontWeight.bold,
+                                          size: 18,
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Divider(
+                                height: 10,
+                                endIndent: 10,
+                                indent: 10,
+                                thickness: 2,
+                                color: Colors.white,
+                              ),
+                              SizedBox(
+                                height: 10,
+                              ),
+                              Material(
+                                child: ListTile(
+                                  title: Center(
+                                    child: Column(
+                                      children: [
+                                        SizedBox(
+                                          height: 5,
+                                        ),
+                                        BigText(
+                                          text:
+                                              "Quantity::${acpt.data?.quantity} ",
+                                          fontWeight: FontWeight.bold,
+                                          size: 18,
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Divider(
+                                height: 10,
+                                endIndent: 10,
+                                indent: 10,
+                                thickness: 2,
+                                color: Colors.white,
+                              ),
+                              SizedBox(
+                                height: 10,
+                              ),
+                            ],
                           ),
                         ),
-                        SizedBox(
-                          height: 15,
-                        ),
-                        Divider(
-                          height: 10,
-                          endIndent: 100,
-                          indent: 100,
-                          thickness: 2,
-                          color: AppColors.pinkColor,
-                        ),
-                        Container(
-                          padding:
-                              EdgeInsets.symmetric(horizontal: 15, vertical: 5),
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(20),
-                            border: Border.all(
-                                color: Colors.black.withOpacity(0.13)),
-                          ),
-                          child: Material(
-                            child: ListTile(
-                              tileColor: Colors.white,
-                              leading: Icon(
-                                Icons.arrow_forward_ios,
-                                color: AppColors.purpleColor,
-                                size: 30,
-                              ),
-                              title: BigText(
-                                text: "Description",
-                                fontWeight: FontWeight.bold,
-                                size: 18,
-                              ),
-                              subtitle: SmallText(
-                                text: "${acpt.data?.description}",
-                                fontWeight: FontWeight.bold,
-                                color: AppColors.purpleColor,
-                                size: 14,
-                              ),
-                              trailing: Icon(
-                                Icons.arrow_back_ios,
-                                color: AppColors.purpleColor,
-                                size: 30,
-                              ),
-                            ),
-                          ),
-                        ),
-                        SizedBox(
-                          height: 15,
-                        ),
-                        Divider(
-                          height: 10,
-                          endIndent: 100,
-                          indent: 100,
-                          thickness: 2,
-                          color: AppColors.pinkColor,
-                        ),
-                        Container(
-                          padding:
-                              EdgeInsets.symmetric(horizontal: 15, vertical: 5),
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(20),
-                            border: Border.all(
-                                color: Colors.black.withOpacity(0.13)),
-                          ),
-                          child: Material(
-                            child: ListTile(
-                              tileColor: Colors.white,
-                              leading: Icon(
-                                Icons.arrow_forward_ios,
-                                color: AppColors.purpleColor,
-                                size: 30,
-                              ),
-                              title: BigText(
-                                text: "Duration in (Days)",
-                                fontWeight: FontWeight.bold,
-                                size: 18,
-                              ),
-                              subtitle: SmallText(
-                                text: "${acpt.data?.period}",
-                                fontWeight: FontWeight.bold,
-                                color: AppColors.purpleColor,
-                                size: 14,
-                              ),
-                              trailing: Icon(
-                                Icons.arrow_back_ios,
-                                color: AppColors.purpleColor,
-                                size: 30,
-                              ),
-                            ),
-                          ),
-                        ),
-                        SizedBox(
-                          height: 15,
-                        ),
-                        Divider(
-                          height: 10,
-                          endIndent: 100,
-                          indent: 100,
-                          thickness: 2,
-                          color: AppColors.pinkColor,
-                        ),
-                        Container(
-                          padding:
-                              EdgeInsets.symmetric(horizontal: 15, vertical: 5),
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(20),
-                            border: Border.all(
-                                color: Colors.black.withOpacity(0.13)),
-                          ),
-                          child: Material(
-                            child: ListTile(
-                              tileColor: Colors.white,
-                              leading: Icon(
-                                Icons.arrow_forward_ios,
-                                color: AppColors.purpleColor,
-                                size: 30,
-                              ),
-                              title: BigText(
-                                text: "Quantity",
-                                fontWeight: FontWeight.bold,
-                                size: 18,
-                              ),
-                              subtitle: SmallText(
-                                text: "${acpt.data?.quantity}",
-                                fontWeight: FontWeight.bold,
-                                color: AppColors.purpleColor,
-                                size: 14,
-                              ),
-                              trailing: Icon(
-                                Icons.arrow_back_ios,
-                                color: AppColors.purpleColor,
-                                size: 30,
-                              ),
-                            ),
-                          ),
-                        ),
-                        SizedBox(
-                          height: 15,
-                        ),
-                        Divider(
-                          height: 10,
-                          endIndent: 100,
-                          indent: 100,
-                          thickness: 2,
-                          color: AppColors.pinkColor,
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
+                        SizedBox(height: 30,),
                         Container(
                           padding:
                               EdgeInsets.symmetric(horizontal: 15, vertical: 5),
@@ -319,143 +274,107 @@ class _AcceptOrderState extends State<AcceptOrder> {
                           height: 20,
                         ),
                         Container(
-                          padding:
-                              EdgeInsets.symmetric(horizontal: 15, vertical: 5),
+                          height: 300,
+                          width: 400,
+                          padding: EdgeInsets.all(8.0),
                           decoration: BoxDecoration(
                             color: Colors.white,
                             borderRadius: BorderRadius.circular(20),
                             border: Border.all(
                                 color: Colors.black.withOpacity(0.13)),
                           ),
-                          child: Material(
-                            child: ListTile(
-                              tileColor: Colors.white,
-                              leading: Icon(
-                                Icons.arrow_forward_ios,
-                                color: AppColors.purpleColor,
-                                size: 30,
+                          child: Column(
+                            children: [
+                              Material(
+                                child: ListTile(
+                                  title: Center(
+                                    child: Column(
+                                      children: [
+                                        SizedBox(
+                                          height: 5,
+                                        ),
+                                        BigText(
+                                          text:
+                                              "Amount:: ₦${acpt.data?.deposit} ",
+                                          fontWeight: FontWeight.bold,
+                                          size: 18,
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
                               ),
-                              title: BigText(
-                                text: "Amount",
-                                fontWeight: FontWeight.bold,
-                                size: 18,
+                              Divider(
+                                height: 10,
+                                endIndent: 10,
+                                indent: 10,
+                                thickness: 2,
+                                color: Colors.white,
                               ),
-                              subtitle: SmallText(
-                                text: "${acpt.data?.deposit}",
-                                fontWeight: FontWeight.bold,
-                                color: AppColors.purpleColor,
-                                size: 14,
+                              SizedBox(
+                                height: 10,
                               ),
-                              trailing: Icon(
-                                Icons.arrow_back_ios,
-                                color: AppColors.purpleColor,
-                                size: 30,
+                              Material(
+                                child: ListTile(
+                                  title: Center(
+                                    child: Column(
+                                      children: [
+                                        SizedBox(
+                                          height: 5,
+                                        ),
+                                        BigText(
+                                          text:
+                                              "Charges(Non-refundable 3% of every Deposit):: ₦${acpt.data?.charges} ",
+                                          fontWeight: FontWeight.bold,
+                                          size: 14,
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
                               ),
-                            ),
+                              Divider(
+                                height: 10,
+                                endIndent: 10,
+                                indent: 10,
+                                thickness: 2,
+                                color: Colors.white,
+                              ),
+                              SizedBox(
+                                height: 10,
+                              ),
+                              
+                              Material(
+                                child: ListTile(
+                                  title: Center(
+                                    child: Column(
+                                      children: [
+                                        SizedBox(
+                                          height: 5,
+                                        ),
+                                        BigText(
+                                          text:
+                                              "Total Amount:: ₦${acpt.data?.total} ",
+                                          fontWeight: FontWeight.bold,
+                                          size: 18,
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Divider(
+                                height: 10,
+                                endIndent: 10,
+                                indent: 10,
+                                thickness: 2,
+                                color: Colors.white,
+                              ),
+                              SizedBox(
+                                height: 10,
+                              ),
+                            ],
                           ),
-                        ),
-                        SizedBox(
-                          height: 15,
-                        ),
-                        Divider(
-                          height: 10,
-                          endIndent: 100,
-                          indent: 100,
-                          thickness: 2,
-                          color: AppColors.pinkColor,
-                        ),
-                        Container(
-                          padding:
-                              EdgeInsets.symmetric(horizontal: 15, vertical: 5),
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(20),
-                            border: Border.all(
-                                color: Colors.black.withOpacity(0.13)),
-                          ),
-                          child: Material(
-                            child: ListTile(
-                              tileColor: Colors.white,
-                              leading: Icon(
-                                Icons.arrow_forward_ios,
-                                color: AppColors.purpleColor,
-                                size: 30,
-                              ),
-                              title: BigText(
-                                text:
-                                    "Charges(Non-Refundable 3% of every deposit)",
-                                fontWeight: FontWeight.bold,
-                                size: 16,
-                              ),
-                              subtitle: SmallText(
-                                text: "${acpt.data?.charges}",
-                                fontWeight: FontWeight.bold,
-                                color: AppColors.purpleColor,
-                                size: 14,
-                              ),
-                              trailing: Icon(
-                                Icons.arrow_back_ios,
-                                color: AppColors.purpleColor,
-                                size: 30,
-                              ),
-                            ),
-                          ),
-                        ),
-                        SizedBox(
-                          height: 15,
-                        ),
-                        Divider(
-                          height: 10,
-                          endIndent: 100,
-                          indent: 100,
-                          thickness: 2,
-                          color: AppColors.pinkColor,
-                        ),
-                        Container(
-                          padding:
-                              EdgeInsets.symmetric(horizontal: 15, vertical: 5),
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(20),
-                            border: Border.all(
-                                color: Colors.black.withOpacity(0.13)),
-                          ),
-                          child: Material(
-                            child: ListTile(
-                              tileColor: Colors.white,
-                              leading: Icon(
-                                Icons.arrow_forward_ios,
-                                color: AppColors.purpleColor,
-                                size: 30,
-                              ),
-                              title: BigText(
-                                text: "Total Amount",
-                                fontWeight: FontWeight.bold,
-                                size: 18,
-                              ),
-                              subtitle: SmallText(
-                                text: "${acpt.data?.total}",
-                                fontWeight: FontWeight.bold,
-                                color: AppColors.purpleColor,
-                                size: 14,
-                              ),
-                              trailing: Icon(
-                                Icons.arrow_back_ios,
-                                color: AppColors.purpleColor,
-                                size: 30,
-                              ),
-                            ),
-                          ),
-                        ),
-                        SizedBox(
-                          height: 15,
-                        ),
-                        Divider(
-                          height: 10,
-                          endIndent: 100,
-                          indent: 100,
-                          thickness: 2,
-                          color: AppColors.pinkColor,
                         ),
                         SizedBox(
                           height: 20,

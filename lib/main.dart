@@ -15,6 +15,7 @@ import 'package:midfeeglobal_app/users/new_details_page.dart';
 import 'package:midfeeglobal_app/users/notifications.dart';
 import 'package:midfeeglobal_app/users/profile.dart';
 import 'package:midfeeglobal_app/users/responsive_carousel.dart';
+import 'package:midfeeglobal_app/users/seller_order_transactions.dart';
 import 'package:midfeeglobal_app/view_model/accept_order_vm.dart';
 import 'package:midfeeglobal_app/view_model/auth_vm.dart';
 import 'package:midfeeglobal_app/view_model/buyer_trans_vm.dart';
@@ -58,6 +59,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+  
     return GetMaterialApp(
       title: 'Midfeeglobal App',
       debugShowCheckedModeBanner: false,

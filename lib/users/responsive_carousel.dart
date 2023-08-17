@@ -155,8 +155,8 @@ class _ResponsiveCarouselState extends State<ResponsiveCarousel> {
                                     Visibility(
                                         visible: _isSelected[i],
                                         child: Container(
-                                          height: 20,
-                                          width: 50,
+                                          height: 5,
+                                          width: 30,
                                           decoration: BoxDecoration(
                                             borderRadius:
                                                 BorderRadius.circular(5.0),

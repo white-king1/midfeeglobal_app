@@ -148,7 +148,7 @@ class _SignupState extends State<Signup> {
                           // ignore: sort_child_properties_last
                           child: BigText(
                             text: "Sign Up",
-                            color: AppColors.blueColor,
+                            color: Colors.white,
                             fontWeight: FontWeight.normal,
                           ),
                           style: ElevatedButton.styleFrom(

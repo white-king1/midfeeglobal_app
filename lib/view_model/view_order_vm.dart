@@ -15,7 +15,7 @@ class ViewOrderVm extends ChangeNotifier {
   final server = Server();
 
   Future<void> Vieworder(BuildContext context) async {
-          await Get.offAll(AcceptOrder(transactionId: transaction_id.text),);
+          await Get.to(AcceptOrder(transactionId: transaction_id.text),);
 
   }
 }

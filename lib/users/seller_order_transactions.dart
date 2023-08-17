@@ -53,120 +53,273 @@ class _SellerOrderTransactionsState extends State<SellerOrderTransactions> {
                     }
                     AcceptOrderResponse sell = snapshot.data;
                     return Container(
-                      width: 450,
-                      height: 270,
-                      margin: EdgeInsets.all(20),
-                      padding: EdgeInsets.all(10),
+                      height: 400,
+                      width: 400,
+                      padding: EdgeInsets.all(8.0),
                       decoration: BoxDecoration(
-                        color: AppColors.purpleColor,
-                        borderRadius: BorderRadius.circular(30),
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(20),
+                        border:
+                            Border.all(color: Colors.black.withOpacity(0.13)),
                       ),
                       child: Column(
                         children: [
                           Material(
                             child: ListTile(
-                              tileColor: Colors.white,
-                              leading: BigText(
-                                text:
-                                    "Transaction ID:: ${sell.data?.transactionId}",
-                                fontWeight: FontWeight.bold,
-                                size: 18,
+                              title: Center(
+                                child: Column(
+                                  children: [
+                                    SizedBox(
+                                      height: 5,
+                                    ),
+                                    Row(
+                                      children: [
+                                        BigText(
+                                          text:
+                                              "Transaction ID::${sell.data?.transactionId} ",
+                                          fontWeight: FontWeight.bold,
+                                          size: 18,
+                                        ),
+                                        SizedBox(
+                                          width: 5,
+                                        ),
+                                        Icon(
+                                          Icons.copy_sharp,
+                                          color: AppColors.purpleColor,
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
                               ),
-                              title: BigText(
-                                text: "Description:: ${sell.data?.description}",
-                                fontWeight: FontWeight.bold,
-                                size: 18,
-                              ),
-                              subtitle: Column(
-                                children: [
-                                  SmallText(
-                                    text: "Quantity::${sell.data?.quantity}",
-                                    fontWeight: FontWeight.bold,
-                                    color: AppColors.purpleColor,
-                                    size: 14,
-                                  ),
-                                  SizedBox(
-                                    height: 10,
-                                  ),
-                                  SmallText(
-                                    text: "Period::${sell.data?.period}",
-                                    fontWeight: FontWeight.bold,
-                                    color: AppColors.purpleColor,
-                                    size: 14,
-                                  ),
-                                  SizedBox(
-                                    height: 10,
-                                  ),
-                                  BigText(
-                                    text: "Amount::${sell.data?.deposit}",
-                                    fontWeight: FontWeight.bold,
-                                    color: AppColors.purpleColor,
-                                    size: 14,
-                                  ),
-                                  SizedBox(
-                                    height: 10,
-                                  ),
-                                  BigText(
-                                    text: "Status::${sell.data?.status}",
-                                    fontWeight: FontWeight.bold,
-                                    color: AppColors.purpleColor,
-                                    size: 14,
-                                  ),
-                                ],
-                              ),
-                              trailing: BigText(
-                                    text: "Date::${sell.data?.createdAt}",
-                                    fontWeight: FontWeight.bold,
-                                    color: AppColors.purpleColor,
-                                    size: 14,
-                                  ), 
                             ),
                           ),
+                          Divider(
+                            height: 10,
+                            endIndent: 10,
+                            indent: 10,
+                            thickness: 2,
+                            color: Colors.white,
+                          ),
                           SizedBox(
-                                  height: 10,
+                            height: 10,
+                          ),
+                          Material(
+                            child: ListTile(
+                              title: Center(
+                                child: Column(
+                                  children: [
+                                    SizedBox(
+                                      height: 5,
+                                    ),
+                                    BigText(
+                                      text:
+                                          "Description::${sell.data?.description} ",
+                                      fontWeight: FontWeight.bold,
+                                      size: 18,
+                                    ),
+                                  ],
                                 ),
-                                Container(
-                                  margin:
-                                      EdgeInsets.only(top: 20, left: 10, right: 10),
-                                  child: SizedBox(
-                                    width: 60,
-                                    height: 50,
-                                    // ignore: sort_child_properties_last
-                                    child: ElevatedButton(
-                                      onPressed: () {
-                                        // Navigator.push(
-                                        //   context,
-                                        //   MaterialPageRoute(
+                              ),
+                            ),
+                          ),
+                          Divider(
+                            height: 10,
+                            endIndent: 10,
+                            indent: 10,
+                            thickness: 2,
+                            color: Colors.white,
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Material(
+                            child: ListTile(
+                              title: Center(
+                                child: Column(
+                                  children: [
+                                    SizedBox(
+                                      height: 5,
+                                    ),
+                                    BigText(
+                                      text:
+                                          "Duration in (Days)::${sell.data?.period} ",
+                                      fontWeight: FontWeight.bold,
+                                      size: 18,
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ),
+                          Divider(
+                            height: 10,
+                            endIndent: 10,
+                            indent: 10,
+                            thickness: 2,
+                            color: Colors.white,
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Material(
+                            child: ListTile(
+                              title: Center(
+                                child: Column(
+                                  children: [
+                                    SizedBox(
+                                      height: 5,
+                                    ),
+                                    BigText(
+                                      text: "Quantity::${sell.data?.quantity} ",
+                                      fontWeight: FontWeight.bold,
+                                      size: 18,
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ),
+                          Divider(
+                            height: 10,
+                            endIndent: 10,
+                            indent: 10,
+                            thickness: 2,
+                            color: Colors.white,
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Material(
+                            child: ListTile(
+                              title: Center(
+                                child: Column(
+                                  children: [
+                                    SizedBox(
+                                      height: 5,
+                                    ),
+                                    BigText(
+                                      text:
+                                          "Total Amount::${sell.data?.total} ",
+                                      fontWeight: FontWeight.bold,
+                                      size: 18,
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ),
+                          Divider(
+                            height: 10,
+                            endIndent: 10,
+                            indent: 10,
+                            thickness: 2,
+                            color: Colors.white,
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Material(
+                            child: ListTile(
+                              title: Center(
+                                child: Column(
+                                  children: [
+                                    SizedBox(
+                                      height: 5,
+                                    ),
+                                    BigText(
+                                      text: "Status::${sell.data?.status} ",
+                                      fontWeight: FontWeight.bold,
+                                      size: 18,
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ),
+                          Divider(
+                            height: 10,
+                            endIndent: 10,
+                            indent: 10,
+                            thickness: 2,
+                            color: Colors.white,
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Material(
+                            child: ListTile(
+                              title: Center(
+                                child: Column(
+                                  children: [
+                                    SizedBox(
+                                      height: 5,
+                                    ),
+                                    BigText(
+                                      text: "Date::${sell.data?.createdAt} ",
+                                      fontWeight: FontWeight.bold,
+                                      size: 18,
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ),
+                          Divider(
+                            height: 10,
+                            endIndent: 10,
+                            indent: 10,
+                            thickness: 2,
+                            color: Colors.white,
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Container(
+                              margin:
+                                  EdgeInsets.only(top: 20, left: 10, right: 10),
+                              child: SizedBox(
+                                width: 120,
+                                height: 50,
+                                // ignore: sort_child_properties_last
+                                child: ElevatedButton(
+                                  onPressed: () {
+                                    // Navigator.push(
+                                    //   context,
+                                    //   MaterialPageRoute(
 
-                                        //     builder: (context) => Signup(),
-                                        //   ),
-                                        // );
-                                      },
-                                      // ignore: sort_child_properties_last
-                                      child: BigText(
-                                        text: "Recieved",
-                                        fontWeight: FontWeight.bold,
-                                        size: 14,
-                                        color: Colors.white,
-                                      ),
+                                    //     builder: (context) => Signup(),
+                                    //   ),
+                                    // );
+                                  },
+                                  // ignore: sort_child_properties_last
+                                  child: BigText(
+                                    text: "Recieved",
+                                    fontWeight: FontWeight.bold,
+                                    size: 10,
+                                    color: Colors.white,
+                                  ),
 
-                                      style: ElevatedButton.styleFrom(
-                                        primary: AppColors
-                                            .purpleColor, //change background color of button
-                                        // onPrimary: Colors.yellow, //change text color of button
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius: BorderRadius.circular(15.0),
-                                          side: BorderSide(
-                                              color: AppColors.purpleColor),
-                                        ),
-                                      ),
+                                  style: ElevatedButton.styleFrom(
+                                    primary: AppColors
+                                        .pinkColor, //change background color of button
+                                    // onPrimary: Colors.yellow, //change text color of button
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(20),
+                                      side: BorderSide(
+                                          color: AppColors.purpleColor),
                                     ),
                                   ),
                                 ),
+                              ),
+                            ),
                         ],
                       ),
                     );
                   }),
+              SizedBox(
+                height: 30,
+              ),
             ])));
   }
 }

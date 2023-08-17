@@ -30,9 +30,9 @@ class PlaceOrderVm extends ChangeNotifier {
 
     final Map<String, dynamic> result = json.decode(response.body);
     print(response.body);
-      loading = false;
+    loading = false;
     notifyListeners();
-    
+
     if (result['success'] == true) {
       String transactionId = result['place']['transaction_id'];
       Flushbar(
@@ -40,7 +40,9 @@ class PlaceOrderVm extends ChangeNotifier {
         message: "You've Successfully Placed an Order ",
         duration: const Duration(seconds: 3),
       )..show(context);
-      await Get.offAll(AcceptOrder(transactionId: transactionId));
+      await Get.to(AcceptOrder(
+        transactionId: transactionId,
+      ));
     }
   }
 }

@@ -193,26 +193,22 @@ class _HomeState extends State<Home> {
             ),
             ResponsiveCarousel(),
             SizedBox(
-              height: 10,
+              height: 50,
             ),
             Column(
               children: [
                 ListTile(
-                  leading: Icon(
-                    Icons.storefront,
-                    color: AppColors.purpleColor,
-                    size: 18,
-                  ),
-                  title: BigText(
+                  leading: BigText(
                     text: 'Seller Order Transactions',
                     fontWeight: FontWeight.bold,
-                    size: 18,
+                    size: 14,
                     color: AppColors.purpleColor,
                   ),
-                  trailing: Icon(
-                    Icons.arrow_downward,
+                  trailing: SmallText(
+                    text: 'View All >>',
+                    fontWeight: FontWeight.bold,
+                    size: 14,
                     color: AppColors.purpleColor,
-                    size: 18,
                   ),
                 ),
               ],
@@ -232,24 +228,24 @@ class _HomeState extends State<Home> {
                 }
                 SellertransResponse sell = snapshot.data;
                 return Consumer<ViewOrderVm>(builder: (context, auth, child) {
-                  return GestureDetector(
-                    onTap: () {
-                      auth.Vieworder(context);
-                      // Navigator.push(
-                      //   context,
-                      //   MaterialPageRoute(
-                      //     //please change Dashboard to Register
-                      //     builder: (context) => SellerOrderTransactions(transactionId: Transaction_Id),
-                      //   ),
-                      // );
-                    },
-                    child: ListView.builder(
-                        itemCount: sell.seller?.length,
-                        shrinkWrap: true,
-                        physics: NeverScrollableScrollPhysics(),
-                        itemBuilder: (BuildContext context, int index) {
-                          Seller seller = sell.seller![index];
-                          return Container(
+                  return ListView.builder(
+                      itemCount: sell.seller?.length,
+                      shrinkWrap: true,
+                      physics: NeverScrollableScrollPhysics(),
+                      itemBuilder: (BuildContext context, int index) {
+                        Seller seller = sell.seller![index];
+                        return GestureDetector(
+                          onTap: () {
+                            // auth.Vieworder(context);
+                            // Navigator.push(
+                            //   context,
+                            //   MaterialPageRoute(
+                            //     //please change Dashboard to Register
+                            //     builder: (context) => SellerOrderTransactions(transactionId: widget.transactionId),
+                            //   ),
+                            // );
+                          },
+                          child: Container(
                             padding: EdgeInsets.symmetric(
                                 horizontal: 15, vertical: 5),
                             decoration: BoxDecoration(
@@ -285,24 +281,123 @@ class _HomeState extends State<Home> {
                                 ),
                               ),
                             ),
-                          );
-                        }),
-                  );
+                          ),
+                        );
+                      });
                 });
               },
             ),
+            // SizedBox(
+            //   height: 5,
+            // ),
+            // Divider(
+            //   height: 10,
+            //   endIndent: 100,
+            //   indent: 100,
+            //   thickness: 2,
+            //   color: AppColors.pinkColor,
+            // ),
             SizedBox(
-              height: 5,
+              height: 50,
             ),
-            Divider(
-              height: 10,
-              endIndent: 100,
-              indent: 100,
-              thickness: 2,
-              color: AppColors.pinkColor,
+
+            Column(
+              children: [
+                ListTile(
+                  leading: BigText(
+                    text: 'Buyer Order Transactions',
+                    fontWeight: FontWeight.bold,
+                    size: 14,
+                    color: AppColors.purpleColor,
+                  ),
+                  trailing: SmallText(
+                    text: 'View All >>',
+                    fontWeight: FontWeight.bold,
+                    size: 14,
+                    color: AppColors.purpleColor,
+                  ),
+                ),
+              ],
+            ),
+            FutureBuilder(
+              future: Provider.of<BuyertransVm>(context, listen: false)
+                  .getBuyertrans(context),
+              builder: (context, AsyncSnapshot snapshot) {
+                if (snapshot.connectionState == ConnectionState.waiting) {
+                  return Center(
+                    child: CircularProgressIndicator.adaptive(),
+                  );
+                } else if (snapshot.hasError) {
+                  return Center(
+                    child: Text('An error occured'),
+                  );
+                }
+                BuyertransResponse now = snapshot.data;
+                return Consumer<ViewOrderVm>(builder: (context, auth, child) {
+                  return ListView.builder(
+                      itemCount: now.buyer?.length,
+                      shrinkWrap: true,
+                      physics: NeverScrollableScrollPhysics(),
+                      itemBuilder: (BuildContext context, int index) {
+                        Buyer buyer = now.buyer![index];
+                        return GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                //please change Dashboard to Register
+                                builder: (context) => _bottomSheet(context),
+                              ),
+                            );
+                          },
+                          child: Container(
+                            padding:
+                                EdgeInsets.symmetric(horizontal: 15, vertical: 5),
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              boxShadow: [
+                                BoxShadow(
+                                    color: AppColors.blueColor,
+                                    blurRadius: 10,
+                                    offset: Offset(0, 4))
+                              ],
+                              borderRadius: BorderRadius.circular(8),
+                              border: Border.all(
+                                  color: Colors.black.withOpacity(0.13)),
+                            ),
+                            child: Material(
+                              child: ListTile(
+                                tileColor: Colors.white,
+                                leading: Icon(
+                                  Icons.receipt,
+                                  color: AppColors.purpleColor,
+                                  size: 30,
+                                ),
+                                title: BigText(
+                                    text:
+                                        "Transaction_Id: ${buyer.transactionId}",
+                                    fontWeight: FontWeight.bold),
+                                subtitle: SmallText(
+                                  text: "Description:: ${buyer.description}",
+                                  fontWeight: FontWeight.bold,
+                                  color: AppColors.purpleColor,
+                                ),
+                                trailing: Icon(
+                                  Icons.arrow_forward_ios,
+                                  color: AppColors.purpleColor,
+                                  size: 30,
+                                ),
+                              ),
+                            ),
+                          ),
+                        );
+                      });
+                }
+                );
+              },
             ),
             SizedBox(
-              height: 10,
+              height: 50,
             ),
             // Container(
             //   width: 450,
@@ -380,197 +475,6 @@ class _HomeState extends State<Home> {
             //     ],
             //   ),
             // ),
-            SizedBox(
-              height: 10,
-            ),
-            Column(
-              children: [
-                ListTile(
-                  leading: Icon(
-                    Icons.storefront,
-                    color: AppColors.purpleColor,
-                    size: 18,
-                  ),
-                  title: BigText(
-                    text: 'Buyer Order Transactions',
-                    fontWeight: FontWeight.bold,
-                    size: 18,
-                    color: AppColors.purpleColor,
-                  ),
-                  trailing: Icon(
-                    Icons.arrow_downward,
-                    color: AppColors.purpleColor,
-                    size: 18,
-                  ),
-                ),
-              ],
-            ),
-            FutureBuilder(
-              future: Provider.of<BuyertransVm>(context, listen: false)
-                  .getBuyertrans(context),
-              builder: (context, AsyncSnapshot snapshot) {
-                if (snapshot.connectionState == ConnectionState.waiting) {
-                  return Center(
-                    child: CircularProgressIndicator.adaptive(),
-                  );
-                } else if (snapshot.hasError) {
-                  return Center(
-                    child: Text('An error occured'),
-                  );
-                }
-                BuyertransResponse now = snapshot.data;
-                return ListView.builder(
-                    itemCount: now.buyer?.length,
-                    shrinkWrap: true,
-                    physics: NeverScrollableScrollPhysics(),
-                    itemBuilder: (BuildContext context, int index) {
-                      Buyer buyer = now.buyer![index];
-                      return GestureDetector(
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              //please change Dashboard to Register
-                              builder: (context) => _bottomSheet(context),
-                            ),
-                          );
-                        },
-                        child: Container(
-                          padding:
-                              EdgeInsets.symmetric(horizontal: 15, vertical: 5),
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            boxShadow: [
-                              BoxShadow(
-                                  color: AppColors.blueColor,
-                                  blurRadius: 10,
-                                  offset: Offset(0, 4))
-                            ],
-                            borderRadius: BorderRadius.circular(8),
-                            border: Border.all(
-                                color: Colors.black.withOpacity(0.13)),
-                          ),
-                          child: Material(
-                            child: ListTile(
-                              tileColor: Colors.white,
-                              leading: Icon(
-                                Icons.receipt,
-                                color: AppColors.purpleColor,
-                                size: 30,
-                              ),
-                              title: BigText(
-                                  text:
-                                      "Transaction_Id: ${buyer.transactionId}",
-                                  fontWeight: FontWeight.bold),
-                              subtitle: SmallText(
-                                text: "Description:: ${buyer.description}",
-                                fontWeight: FontWeight.bold,
-                                color: AppColors.purpleColor,
-                              ),
-                              trailing: Icon(
-                                Icons.arrow_forward_ios,
-                                color: AppColors.purpleColor,
-                                size: 30,
-                              ),
-                            ),
-                          ),
-                        ),
-                      );
-                    });
-              },
-            ),
-            SizedBox(
-              height: 5,
-            ),
-            Divider(
-              height: 10,
-              endIndent: 100,
-              indent: 100,
-              thickness: 2,
-              color: AppColors.pinkColor,
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            Container(
-              width: 450,
-              height: 50,
-              margin: EdgeInsets.all(10),
-              padding: EdgeInsets.all(10),
-              decoration: BoxDecoration(
-                color: AppColors.purpleColor,
-                borderRadius: BorderRadius.circular(30),
-                boxShadow: [
-                  BoxShadow(
-                      color: AppColors.pinkColor,
-                      blurRadius: 10,
-                      offset: Offset(0, 4))
-                ],
-              ),
-              child: Row(
-                children: [
-                  SizedBox(
-                    width: 20,
-                  ),
-                  Icon(
-                    Icons.bar_chart,
-                    color: Colors.white,
-                    size: 40,
-                  ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  Icon(
-                    Icons.pie_chart,
-                    color: Colors.white,
-                    size: 40,
-                  ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  Icon(
-                    Icons.incomplete_circle,
-                    color: Colors.white,
-                    size: 40,
-                  ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  Icon(
-                    Icons.waterfall_chart,
-                    color: Colors.white,
-                    size: 40,
-                  ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  Icon(
-                    Icons.bubble_chart,
-                    color: Colors.white,
-                    size: 40,
-                  ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  Icon(
-                    Icons.donut_small,
-                    color: Colors.white,
-                    size: 40,
-                  ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  Icon(
-                    Icons.area_chart,
-                    color: Colors.white,
-                    size: 40,
-                  ),
-                ],
-              ),
-            ),
-            SizedBox(
-              height: 10,
-            ),
           ],
         ),
       ),
